@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sleigh Jam: Christmas Puzzle — Play Free on iPhone</title>
+<meta name="description" content="Sort the gifts and fill the sleigh! A cozy Christmas puzzle game. Free on iPhone and iPad, works offline.">
+<meta name="theme-color" content="#5aa0f0">
+<meta name="apple-itunes-app" content="app-id=6837782763">
+<meta property="og:title" content="Sleigh Jam: Christmas Puzzle">
+<meta property="og:description" content="Sort the gifts and fill the sleigh! Free on iPhone and iPad.">
+<meta property="og:image" content="https://advikerem-code.github.io/sleighjam-docs/play/poster.jpg">
+<meta property="og:type" content="website">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" href="icon.png">
+<link rel="preload" href="poster.jpg" as="image">
+<style>
+  :root { --ink:#1c3068; --ink2:#4a5a86; --gold:#f4c542; --green:#2bb673; --green-d:#178a52; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html, body { margin:0; }
+  body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif; color:var(--ink);
+         background:linear-gradient(180deg,#5aa0f0 0%,#a9d4ff 45%,#e8f4ff 100%); min-height:100vh; min-height:100dvh;
+         display:flex; flex-direction:column; align-items:center; text-align:center;
+         padding:max(10px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom)); }
+  .logo { width:min(300px, 72vw); height:auto; margin:4px 0 0; filter:drop-shadow(0 6px 10px rgba(10,30,80,.25)); }
+  .tag { font-weight:900; font-size:19px; margin:2px 0 10px; color:#fff; text-shadow:0 2px 0 rgba(20,50,120,.45); }
+  .phone { display:block; position:relative; width:min(250px, 58vw); aspect-ratio:9/16; max-height:46vh; max-height:46dvh;
+           border-radius:26px; overflow:hidden; border:5px solid #fff; background:#2a4a8a url(poster.jpg) center/cover no-repeat;
+           box-shadow:0 14px 30px rgba(20,50,120,.30); }
+  .phone video { width:100%; height:100%; object-fit:cover; display:block; }
+  .cta { display:block; width:min(360px, 100%); margin:18px auto 8px; padding:16px 20px 15px; border-radius:999px;
+         background:var(--green); color:#fff; text-decoration:none; font-weight:900; font-size:22px; letter-spacing:.3px;
+         box-shadow:inset 0 -5px 0 var(--green-d), 0 8px 18px rgba(20,80,50,.30); border:3px solid #fff; }
+  .cta small { display:block; font-size:13px; font-weight:800; opacity:.92; letter-spacing:0; margin-top:2px; }
+  .cta:active { transform:translateY(2px); box-shadow:inset 0 -3px 0 var(--green-d), 0 4px 10px rgba(20,80,50,.30); }
+  .facts { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin:6px 0 10px; padding:0; list-style:none; }
+  .facts li { background:rgba(255,255,255,.85); border-radius:999px; padding:5px 11px; font-size:13px; font-weight:800; color:var(--ink); }
+  footer { margin-top:auto; padding-top:8px; font-size:12px; color:var(--ink2); }
+  footer a { color:var(--ink2); }
+</style>
+</head>
+<body>
+  <img class="logo" src="logo.png" width="640" height="320" alt="Sleigh Jam">
+  <p class="tag">Sort the gifts. Fill the sleigh! 🎁</p>
+
+  <a class="phone js-store" href="https://apps.apple.com/app/apple-store/id6837782763?pt=128891525&amp;ct=web_play&amp;mt=8" aria-label="Get Sleigh Jam on the App Store">
+    <video src="loop.mp4" poster="poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+  </a>
+
+  <a class="cta js-store" href="https://apps.apple.com/app/apple-store/id6837782763?pt=128891525&amp;ct=web_play&amp;mt=8">
+    PLAY FREE<small>Download on the App Store</small>
+  </a>
+
+  <ul class="facts">
+    <li>🆓 Free</li><li>📶 Works offline</li><li>🎄 2000 levels</li><li>📱 iPhone &amp; iPad</li>
+  </ul>
+
+  <footer>
+    <a href="../#privacy">Privacy</a> · <a href="../">Support</a> · Sleigh Jam: Christmas Puzzle
+  </footer>
+
+<script>
+  // Pass the ad's campaign tag (?ct=...) to the App Store link so App Store Connect shows installs per ad.
+  (function () {
+    try {
+      var ct = new URLSearchParams(location.search).get('ct') || '';
+      ct = ct.toLowerCase().replace(/[^a-z0-9_]/g, '').slice(0, 40);
+      if (!ct) return;
+      var links = document.querySelectorAll('.js-store');
+      for (var i = 0; i < links.length; i++) links[i].href = links[i].href.replace('ct=web_play', 'ct=' + ct);
+    } catch (e) { /* keep the default link */ }
+  })();
+</script>
+</body>
+</html>
